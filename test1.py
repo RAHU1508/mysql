@@ -1,0 +1,10 @@
+import mysql.connector as connection
+mydb = connection.connect(host="localhost", user="root", passwd="Letsplay@12345678")
+print(mydb)
+cursor = mydb.cursor()
+#cursor.execute('show databases')
+#cursor.execute('create table rahul.rahul_details(employee_ID int(10), emp_name varchar(80), emp_mail varchar(20), emp_salary int(6))')
+cursor.execute("insert into rahul.rahul_details values(12345,'rahulkumar','rahulxyz96@gmail.com',100000)")
+mydb.commit()
+cursor.execute('select * from rahul.rahul_details')
+print(cursor.fetchall())
